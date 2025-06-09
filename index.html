@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Form</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+  <h1>Dashboard Form</h1>
+
+  <input type="text" id="searchInput" placeholder="Cari nama, email, produk, atau catatan..." />
+
+  <div class="loading" id="loading">Memuat data...</div>
+
+  <table id="dataTable" style="display:none">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Nama ⬍</th>
+        <th onclick="sortTable(1)">Email ⬍</th>
+        <th onclick="sortTable(2)">Produk ⬍</th>
+        <th onclick="sortTable(3)">Catatan ⬍</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script src="src/script.js"></script>
+</body>
+</html>
