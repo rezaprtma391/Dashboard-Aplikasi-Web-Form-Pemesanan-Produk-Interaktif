@@ -1,4 +1,4 @@
-const TOKEN = 'nfp_BTua2XpNFkjP8gPY9EdimYmkkWYLpesJ8811'; // Token API kamu
+const TOKEN = 'nfp_jvunShQbZUaekg31aXHRrQfDLpJzjm623527'; // Token API kamu
 const SITE_ID = '60148b9e-7c19-4283-a2c6-7749155a7074'; // Ganti dengan Site ID dari Netlify
 const FORM_NAME = 'pemesanan-produk'; // Ganti sesuai dengan atribut name di form HTML
 
