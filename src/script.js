@@ -1,5 +1,5 @@
-const TOKEN = 'nfp_BTua2XpNFkjP8gPY9EdimYmkkWYLpesJ8811'; // Ganti dengan token kamu
-    const FORM_ID = 'pemesanan-produk'; // Ganti dengan ID form kamu
+    const TOKEN = 'nfp_BTua2XpNFkjP8gPY9EdimYmkkWYLpesJ8811'; // Ganti dengan token kamu
+    const FORM_ID = '68470bf0f9d9890008823279'; // Ganti dengan ID form kamu
 
     async function fetchFormSubmissions() {
       const url = `https://api.netlify.com/api/v1/forms/${FORM_ID}/submissions`;
