@@ -9,6 +9,8 @@
 <body>
   <h1>Dashboard Form</h1>
 
+  <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙 Mode Gelap</button>
+
   <input type="text" id="searchInput" placeholder="Cari nama, email, produk, atau catatan..." />
 
   <div class="loading" id="loading">Memuat data...</div>
@@ -26,5 +28,17 @@
   </table>
 
   <script src="src/script.js"></script>
+  <script>
+    // Dark mode toggle
+    const btn = document.getElementById('darkModeToggle');
+    btn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        btn.textContent = '☀️ Mode Terang';
+      } else {
+        btn.textContent = '🌙 Mode Gelap';
+      }
+    });
+  </script>
 </body>
 </html>

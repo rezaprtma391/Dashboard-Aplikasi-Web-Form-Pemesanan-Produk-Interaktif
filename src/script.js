@@ -1,14 +1,17 @@
-const TOKEN = 'nfp_jvunShQbZUaekg31aXHRrQfDLpJzjm623527'; // Token API kamu
-const SITE_ID = '60148b9e-7c19-4283-a2c6-7749155a7074'; // Ganti dengan Site ID dari Netlify
-const FORM_NAME = 'pemesanan-produk'; // Ganti sesuai dengan atribut name di form HTML
+const TOKEN = 'nfp_jvunShQbZUaekg31aXHRrQfDLpJzjm623527'; 
+const SITE_ID = '60148b9e-7c19-4283-a2c6-7749155a7074'; 
+const FORM_NAME = 'pemesanan-produk'; 
 
 async function getFormIdByName(siteId, formName) {
   const url = `https://api.netlify.com/api/v1/sites/${siteId}/forms`;
   const response = await fetch(url, {
     headers: {
-      'Authorization': TOKEN
+      'Authorization': `Bearer ${TOKEN}`
     }
   });
+  if (!response.ok) {
+    throw new Error(`Gagal mengambil daftar form: ${response.status} ${response.statusText}`);
+  }
   const forms = await response.json();
   const form = forms.find(f => f.name === formName);
   if (!form) throw new Error('Form dengan nama tersebut tidak ditemukan.');
@@ -21,13 +24,16 @@ async function fetchFormSubmissions() {
     const url = `https://api.netlify.com/api/v1/forms/${formId}/submissions`;
     const response = await fetch(url, {
       headers: {
-        'Authorization': TOKEN
+        'Authorization': `Bearer ${TOKEN}`
       }
     });
+    if (!response.ok) {
+      throw new Error(`Gagal mengambil data submission: ${response.status} ${response.statusText}`);
+    }
     const data = await response.json();
     renderTable(data);
   } catch (err) {
-    document.getElementById('loading').innerText = 'Gagal memuat data.';
+    document.getElementById('loading').innerText = 'Gagal memuat data: ' + err.message;
     console.error(err);
   }
 }
